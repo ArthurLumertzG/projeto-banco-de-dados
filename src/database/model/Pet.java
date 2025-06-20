@@ -10,13 +10,11 @@ public class Pet {
 	private Date dataNascimento;
 	private String especie;
 	private String raca;
-	
-	
+
 	public Pet() {
 	}
-	
-	public Pet(int idPet, int idTutor, String nome, Date dataNascimento, String especie, String raca) {
-		this.idPet = idPet;
+
+	public Pet(int idTutor, String nome, Date dataNascimento, String especie, String raca) {
 		this.idTutor = idTutor;
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
@@ -70,7 +68,6 @@ public class Pet {
 
 	public void setRaca(String raca) {
 		this.raca = raca;
-	}  
-	
-	
+	}
+
 }

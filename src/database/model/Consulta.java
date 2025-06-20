@@ -10,24 +10,23 @@ public class Consulta {
 	private int idPet;
 	private Date dataHora;
 	private int idEndereco;
-    private String motivo;
-    private String diagnostico;
-    private String tratamento;
-
+	private String motivo;
+	private String diagnostico;
+	private String tratamento;
 
 	public Consulta() {
 	}
 
-	public Consulta(int idConsulta, int idVeterinario, int idAuxiliar, int idPet,  Date dataHora,  int idEndereco,String motivo, String diagnostico, String tratamento) {
-		this.idConsulta = idConsulta;
+	public Consulta(int idVeterinario, int idAuxiliar, int idPet, Date dataHora, int idEndereco,
+			String motivo, String diagnostico, String tratamento) {
 		this.idVeterinario = idVeterinario;
 		this.idAuxiliar = idAuxiliar;
 		this.idPet = idPet;
 		this.dataHora = dataHora;
 		this.idEndereco = idEndereco;
-        this.motivo = motivo;
-        this.diagnostico = diagnostico;
-        this.tratamento = tratamento;
+		this.motivo = motivo;
+		this.diagnostico = diagnostico;
+		this.tratamento = tratamento;
 	}
 
 	public int getIdConsulta() {
@@ -101,6 +100,5 @@ public class Consulta {
 	public void setTratamento(String tratamento) {
 		this.tratamento = tratamento;
 	}
-	
-	
+
 }

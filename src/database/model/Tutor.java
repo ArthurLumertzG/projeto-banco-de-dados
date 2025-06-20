@@ -12,8 +12,7 @@ public class Tutor {
 	public Tutor() {
 	}
 
-	public Tutor(int idTutor, String nome, String cpf, String email, String telefone, int idEndereco) {
-		this.idTutor = idTutor;
+	public Tutor(String nome, String cpf, String email, String telefone, int idEndereco) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
@@ -68,6 +67,5 @@ public class Tutor {
 	public void setIdEndereco(int idEndereco) {
 		this.idEndereco = idEndereco;
 	}
-	
-	
+
 }
