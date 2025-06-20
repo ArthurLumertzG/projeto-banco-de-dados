@@ -11,13 +11,12 @@ public class Veterinario {
 	private String email;
 	private String especialidade;
 	private String telefone;
-	
-	public Veterinario () {
-		
+
+	public Veterinario() {
+
 	}
-	
-	public Veterinario (int idVeterinario, int idClinica, int idEndereco, String nome, String cpf, String crmv, String email, String especialidade, String telefone) {
-		this.idVeterinario = idVeterinario;
+
+	public Veterinario(int idClinica, int idEndereco, String nome, String cpf, String crmv, String email, String especialidade, String telefone) {
 		this.idClinica = idClinica;
 		this.idEndereco = idEndereco;
 		this.nome = nome;
@@ -99,9 +98,5 @@ public class Veterinario {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
-	
-	
+
 }
-
-
