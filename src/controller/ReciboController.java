@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import database.dao.ReciboDAO;
+import database.model.FaturamentoMensal;
 import database.model.Recibo;
 
 public class ReciboController {
@@ -44,5 +45,9 @@ public class ReciboController {
             }
         }
         return null;
+    }
+
+    public static List<FaturamentoMensal> faturamentoMensal() throws SQLException {
+        return reciboDAO.faturamentoMensal();
     }
 }

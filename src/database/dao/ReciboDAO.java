@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import database.ConnectionFactory;
+import database.model.FaturamentoMensal;
 import database.model.Recibo;
 
 public class ReciboDAO {
@@ -15,11 +16,13 @@ public class ReciboDAO {
 	private String insert = "INSERT INTO recibo(id_consulta, valor, data_emissao, forma_pagamento, detalhes) VALUES (?, ?, ?, ?, ?)";
 	private String update = "UPDATE recibo SET id_consulta = ?, valor = ?, data_emissao = ?, forma_pagamento = ?, detalhes = ? WHERE id_recibo = ?";
 	private String delete = "DELETE FROM recibo WHERE id_recibo = ?";
+	private String faturamentoRecibos = "SELECT to_char(data_emissao, 'YYYY-MM') AS mes, SUM(valor) AS faturamento_mensal FROM recibo GROUP BY to_char(data_emissao, 'YYYY-MM') ORDER BY mes;\n";
 
 	private PreparedStatement pstSelectAll;
 	private PreparedStatement pstInsert;
 	private PreparedStatement pstUpdate;
 	private PreparedStatement pstDelete;
+	private PreparedStatement pstFaturamento;
 
 	public ReciboDAO() throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
@@ -27,6 +30,7 @@ public class ReciboDAO {
 		pstInsert = connection.prepareStatement(insert);
 		pstUpdate = connection.prepareStatement(update);
 		pstDelete = connection.prepareStatement(delete);
+		pstFaturamento = connection.prepareStatement(faturamentoRecibos);
 	}
 
 	public void insert(Recibo recibo) throws SQLException {
@@ -69,5 +73,19 @@ public class ReciboDAO {
 		}
 
 		return recibos;
+	}
+
+	public ArrayList<FaturamentoMensal> faturamentoMensal() throws SQLException {
+		ArrayList<FaturamentoMensal> faturamentos = new ArrayList<FaturamentoMensal>();
+		ResultSet resultSet = pstFaturamento.executeQuery();
+
+		while (resultSet.next()) {
+			FaturamentoMensal faturamento = new FaturamentoMensal();
+			faturamento.setMes(resultSet.getString("mes"));
+			faturamento.setFaturamentoMensal(resultSet.getDouble("faturamento_mensal"));
+			faturamentos.add(faturamento);
+		}
+
+		return faturamentos;
 	}
 }
