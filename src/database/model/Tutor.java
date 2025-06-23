@@ -24,6 +24,10 @@ public class Tutor {
 		return idTutor;
 	}
 
+	public String getIdTutorAsString() {
+    	return String.valueOf(this.idTutor);
+	}
+
 	public void setIdTutor(int idTutor) {
 		this.idTutor = idTutor;
 	}
@@ -62,6 +66,10 @@ public class Tutor {
 
 	public int getIdEndereco() {
 		return idEndereco;
+	}
+
+	public String getIdEnderecoAsString() {
+    	return String.valueOf(this.idEndereco);
 	}
 
 	public void setIdEndereco(int idEndereco) {

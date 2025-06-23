@@ -27,8 +27,8 @@ public class AuxiliarController {
         auxiliarDAO.insert(auxiliar);
     }
 
-    public static void atualizar(String nome, String cpf, String crmv, String email, int idClinica, String telefone, int idEndereco) throws SQLException {
-        Auxiliar auxiliar = new Auxiliar(nome, cpf, crmv, email, idClinica, telefone, idEndereco);
+    public static void atualizar(int idAuxiliar, String nome, String cpf, String crmv, String email, int idClinica, String telefone, int idEndereco) throws SQLException {
+        Auxiliar auxiliar = new Auxiliar(idAuxiliar, nome, cpf, crmv, email, idClinica, telefone, idEndereco);
         auxiliarDAO.update(auxiliar);
     }
 

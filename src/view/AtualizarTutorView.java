@@ -1,0 +1,106 @@
+package view;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+import controller.TutorController;
+import database.model.Tutor;
+
+public class AtualizarTutorView extends JFrame {
+
+    private JTable tabela;
+    private DefaultTableModel modelo;
+    private JScrollPane scroll;
+	private JLabel lblAtualizar;
+	private JTextField txfAtualizar;
+	private JButton btnAtualizar;
+
+    public AtualizarTutorView() {
+        setTitle("Visualizar - Tutor");
+        setSize(400, 300);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        componentesCriar();
+        setVisible(true);
+        setLocationRelativeTo(null);
+        setResizable(false);
+    }
+
+    
+
+    private void componentesCriar() {
+
+        lblAtualizar = new JLabel("Id da linha a ser excluida:");
+			lblAtualizar.setBounds(20, 230, 200, 20);
+			getContentPane().add(lblAtualizar);
+			txfAtualizar = new JTextField();
+			txfAtualizar.setBounds(180, 230, 100, 20);
+			getContentPane().add(txfAtualizar);
+			btnAtualizar = new JButton("Atualizar");
+			btnAtualizar.setBounds(300, 225, 100, 30);
+			getContentPane().add(btnAtualizar);
+			btnAtualizar.addActionListener( new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					String StringId = txfAtualizar.getText().trim();
+					if(StringId.isEmpty()) {
+						JOptionPane.showMessageDialog(rootPane, "Id inválido."); 
+						return;
+					}
+					Integer id = Integer.parseInt(StringId);
+					
+					try {
+						TutorController.deletar(id);
+					} catch (SQLException e1) {
+						JOptionPane.showMessageDialog(rootPane, "Id inválido."); 
+						e1.printStackTrace();
+					}
+				}
+			});
+
+
+
+        modelo = new DefaultTableModel()  {
+				    @Override
+				    public boolean isCellEditable(int row, int column) {
+				        return false; 
+				    }
+		};
+        modelo.addColumn("ID");
+        modelo.addColumn("Nome");
+        modelo.addColumn("CPF");
+        modelo.addColumn("Telefone");
+        modelo.addColumn("Email");
+        modelo.addColumn("ID Endereço");
+
+        tabela = new JTable(modelo);
+        scroll = new JScrollPane(tabela);
+        scroll.setBounds(10, 10, 360, 150);
+        getContentPane().add(scroll);
+
+        try {
+            List<Tutor> tutorLista = TutorController.listar();
+
+            for (Tutor tutor : tutorLista) {
+                String idTutor = tutor.getIdTutorAsString();
+                String nome = tutor.getNome();
+                String cpf = tutor.getCpf();
+                String telefone = tutor.getTelefone();
+                String email = tutor.getEmail();
+                String idEndereco = tutor.getIdEnderecoAsString();
+
+                modelo.addRow(new String[]{idTutor, nome, cpf, telefone, email, idEndereco});
+            }
+
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
+}
+

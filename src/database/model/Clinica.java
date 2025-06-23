@@ -26,6 +26,10 @@ public class Clinica {
 		return idClinica;
 	}
 
+	public String getIdClinicaAsString() {
+        return String.valueOf(this.idClinica);
+    }
+
 
 	public void setIdClinica(int idClinica) {
 		this.idClinica = idClinica;
@@ -75,6 +79,10 @@ public class Clinica {
 	public int getIdEndereco() {
 		return idEndereco;
 	}
+
+	public String getIdEnderecoAsString() {
+        return String.valueOf(this.idEndereco);
+    }
 
 
 	public void setIdEndereco(int idEndereco) {

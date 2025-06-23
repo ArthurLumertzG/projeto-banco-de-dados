@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PetView extends JFrame {
+public class AdicionarPetView extends JFrame {
 
 	private JPanel pnlPet;
 
@@ -31,12 +31,12 @@ public class PetView extends JFrame {
 
 	private JButton btnenviar;
 
-	public PetView() {
+	public AdicionarPetView() {
 		setTitle("Clínica Veterinária - Pet");
 		setSize(400, 350);
 		setLayout(null);
 		setResizable(false);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		createComponent();
 		setVisible(true);
 		setLocationRelativeTo(null);
@@ -44,7 +44,7 @@ public class PetView extends JFrame {
 
 	public void createComponent() {
 		pnlPet = new JPanel();
-		pnlPet.setBorder(BorderFactory.createTitledBorder("Cadastro de Pet"));
+		pnlPet.setBorder(BorderFactory.createTitledBorder("Clínica Veterinária - Pet"));
 		pnlPet.setBounds(0, 0, 400, 350);
 		pnlPet.setLayout(null);
 		getContentPane().add(pnlPet);

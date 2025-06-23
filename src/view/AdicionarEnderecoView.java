@@ -7,12 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class EnderecoView extends JFrame {
+public class AdicionarEnderecoView extends JFrame {
 
 	private JPanel pnlEndereco;
-
-	private JTextField txfidEndereco;
-	private JLabel lblidEndereco;
 
 	private JTextField txfcep;
 	private JLabel lblcep;
@@ -37,12 +34,12 @@ public class EnderecoView extends JFrame {
 
 	private JButton btnenviar;
 
-	public EnderecoView() {
+	public AdicionarEnderecoView() {
 		setTitle("Clínica Veterinária - Endereço");
 		setSize(400, 400);
 		setLayout(null);
 		setResizable(false);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		createComponent();
 		setVisible(true);
 		setLocationRelativeTo(null);
@@ -50,17 +47,10 @@ public class EnderecoView extends JFrame {
 
 	public void createComponent() {
 		pnlEndereco = new JPanel();
-		pnlEndereco.setBorder(BorderFactory.createTitledBorder("Cadastro de Endereço"));
+		pnlEndereco.setBorder(BorderFactory.createTitledBorder("Clínica Veterinária - Endereço"));
 		pnlEndereco.setBounds(0, 0, 400, 400);
 		pnlEndereco.setLayout(null);
 		getContentPane().add(pnlEndereco);
-
-		lblidEndereco = new JLabel("ID Endereço:");
-		lblidEndereco.setBounds(15, 35, 100, 20);
-		pnlEndereco.add(lblidEndereco);
-		txfidEndereco = new JTextField();
-		txfidEndereco.setBounds(15, 50, 100, 20);
-		pnlEndereco.add(txfidEndereco);
 
 		lblcep = new JLabel("CEP:");
 		lblcep.setBounds(15, 70, 100, 20);

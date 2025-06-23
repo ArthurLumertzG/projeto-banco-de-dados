@@ -33,6 +33,10 @@ public class Consulta {
 		return idConsulta;
 	}
 
+	public String getIdConsultaAsString() {
+        return String.valueOf(this.idConsulta);
+    }
+
 	public void setIdConsulta(int idConsulta) {
 		this.idConsulta = idConsulta;
 	}
@@ -40,6 +44,10 @@ public class Consulta {
 	public int getIdVeterinario() {
 		return idVeterinario;
 	}
+
+	public String getIdVeterinarioAsString() {
+        return String.valueOf(this.idVeterinario);
+    }
 
 	public void setIdVeterinario(int idVeterinario) {
 		this.idVeterinario = idVeterinario;
@@ -49,6 +57,10 @@ public class Consulta {
 		return idAuxiliar;
 	}
 
+	public String getIdAuxiliarAsString() {
+        return String.valueOf(this.idAuxiliar);
+    }
+
 	public void setIdAuxiliar(int idAuxiliar) {
 		this.idAuxiliar = idAuxiliar;
 	}
@@ -56,6 +68,10 @@ public class Consulta {
 	public int getIdPet() {
 		return idPet;
 	}
+
+	public String getIdPetAsString() {
+        return String.valueOf(this.idPet);
+    }
 
 	public void setIdPet(int idPet) {
 		this.idPet = idPet;
@@ -65,6 +81,10 @@ public class Consulta {
 		return dataHora;
 	}
 
+	public String getDataHoraAsString() {
+        return (this.dataHora != null ? this.dataHora.toString() : null);
+    }
+
 	public void setDataHora(Date dataHora) {
 		this.dataHora = dataHora;
 	}
@@ -72,6 +92,10 @@ public class Consulta {
 	public int getIdEndereco() {
 		return idEndereco;
 	}
+
+	public String getIdEnderecoAsString() {
+        return String.valueOf(this.idEndereco);
+    }
 
 	public void setIdEndereco(int idEndereco) {
 		this.idEndereco = idEndereco;

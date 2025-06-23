@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class ClinicaView extends JFrame {
+public class AdicionarClinicaView extends JFrame {
 
 	private JPanel pnlClinica;
 
@@ -31,12 +31,12 @@ public class ClinicaView extends JFrame {
 
 	private JButton btnenviar;
 
-	public ClinicaView() {
+	public AdicionarClinicaView() {
 		setTitle("Clínica Veterinária - Clínica");
 		setSize(400, 350);
 		setLayout(null);
 		setResizable(false);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		createComponent();
 		setVisible(true);
 		setLocationRelativeTo(null);
@@ -44,7 +44,7 @@ public class ClinicaView extends JFrame {
 
 	public void createComponent() {
 		pnlClinica = new JPanel();
-		pnlClinica.setBorder(BorderFactory.createTitledBorder("Cadastro de Clínica"));
+		pnlClinica.setBorder(BorderFactory.createTitledBorder("Clínica Veterinária - Clínica"));
 		pnlClinica.setBounds(0, 0, 400, 350);
 		pnlClinica.setLayout(null);
 		getContentPane().add(pnlClinica);

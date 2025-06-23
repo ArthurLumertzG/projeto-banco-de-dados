@@ -31,6 +31,10 @@ public class Veterinario {
 		return idVeterinario;
 	}
 
+	public String getIdVeterinarioAsString() {
+        return String.valueOf(this.idVeterinario);
+    }
+
 	public void setIdVeterinario(int idVeterinario) {
 		this.idVeterinario = idVeterinario;
 	}
@@ -39,6 +43,10 @@ public class Veterinario {
 		return idClinica;
 	}
 
+	public String getIdClinicaAsString() {
+        return String.valueOf(this.idClinica);
+    }
+
 	public void setIdClinica(int idClinica) {
 		this.idClinica = idClinica;
 	}
@@ -46,6 +54,10 @@ public class Veterinario {
 	public int getIdEndereco() {
 		return idEndereco;
 	}
+
+	 public String getIdEnderecoAsString() {
+        return String.valueOf(this.idEndereco);
+    }
 
 	public void setIdEndereco(int idEndereco) {
 		this.idEndereco = idEndereco;

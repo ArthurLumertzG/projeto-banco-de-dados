@@ -11,8 +11,6 @@ public class Recibo {
 	private String formaPagamento;
 	private String detalhes;
     
-	
-	
 	public Recibo() {
 	}
 	
@@ -28,12 +26,20 @@ public class Recibo {
 		return idRecibo;
 	}
 
+	public String getIdReciboAsString() {
+    	return String.valueOf(this.idRecibo);
+	}
+
 	public void setIdRecibo(int idRecibo) {
 		this.idRecibo = idRecibo;
 	}
 
 	public int getIdConsulta() {
 		return idConsulta;
+	}
+
+	public String getIdConsultaAsString() {
+    	return String.valueOf(this.idConsulta);
 	}
 
 	public void setIdConsulta(int idConsulta) {
@@ -44,14 +50,21 @@ public class Recibo {
 		return valor;
 	}
 
+	public String getValorAsString() {
+		return String.valueOf(this.valor);
+	}
+	
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-
+	
 	public Date getDataEmissao() {
 		return dataEmissao;
 	}
 
+	public String getDataEmissaoAsString() {
+		return String.valueOf(this.dataEmissao);
+	}
 	public void setDataEmissao(Date dataEmissao) {
 		this.dataEmissao = dataEmissao;
 	}

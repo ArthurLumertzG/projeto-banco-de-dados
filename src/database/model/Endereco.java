@@ -30,6 +30,10 @@ public class Endereco {
 		return idEndereco;
 	}
 
+	public String getIdEnderecoAsString() {
+        return String.valueOf(this.idEndereco);
+    }
+
 	public void setIdEndereco(int idEndereco) {
 		this.idEndereco = idEndereco;
 	}

@@ -25,8 +25,23 @@ public class Auxiliar {
 		this.idEndereco = idEndereco;
 	}
 
+	public Auxiliar(int idAuxiliar, String nome, String cpf, String crmv, String email, int idClinica ,String telefone, int idEndereco) {
+		this.idAuxiliar = idAuxiliar;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.telefone = telefone;
+		this.idClinica = idClinica;
+		this.email = email;
+		this.crmv = crmv;
+		this.idEndereco = idEndereco;
+	}
+
 	public int getIdAuxiliar() {
 		return idAuxiliar;
+	}
+
+	public String getIdAuxiliarAsString() {
+		return String.valueOf(idAuxiliar);
 	}
 
 	public void setIdAuxiliar(int idAuxiliar) {
@@ -69,6 +84,10 @@ public class Auxiliar {
 		return idEndereco;
 	}
 
+	public String getIdEnderecoAsString() {
+        return String.valueOf(this.idEndereco);
+    }
+
 	public void setIdEndereco(int idEndereco) {
 		this.idEndereco = idEndereco;
 	}
@@ -84,6 +103,10 @@ public class Auxiliar {
 	public int getIdClinica() {
 		return idClinica;
 	}
+
+	public String getIdClinicaAsString() {
+        return String.valueOf(this.idClinica);
+    }
 
 	public void setIdClinica(int idClinica) {
 		this.idClinica = idClinica;

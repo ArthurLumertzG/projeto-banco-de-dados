@@ -26,12 +26,20 @@ public class Pet {
 		return idPet;
 	}
 
+	public String getIdPetAsString() {
+    	return String.valueOf(this.idPet);
+	}
+
 	public void setIdPet(int idPet) {
 		this.idPet = idPet;
 	}
 
 	public int getIdTutor() {
 		return idTutor;
+	}
+
+	public String getIdTutorAsString() {
+    	return String.valueOf(this.idTutor);
 	}
 
 	public void setIdTutor(int idTutor) {
@@ -48,6 +56,10 @@ public class Pet {
 
 	public Date getDataNascimento() {
 		return dataNascimento;
+	}
+	
+	public String getDataNascimentoAsString() {
+		return String.valueOf(this.dataNascimento);
 	}
 
 	public void setDataNascimento(Date dataNascimento) {
