@@ -28,8 +28,8 @@ public class ReciboController {
         reciboDAO.insert(recibo);
     }
 
-    public static void atualizar(int idConsulta, double valor, Date dataEmissao, String formaPagamento, String detalhes) throws SQLException {
-        Recibo recibo = new Recibo(idConsulta, valor, dataEmissao, formaPagamento, detalhes);
+    public static void atualizar(int idRecibo, int idConsulta, double valor, Date dataEmissao, String formaPagamento, String detalhes) throws SQLException {
+        Recibo recibo = new Recibo(idRecibo, idConsulta, valor, dataEmissao, formaPagamento, detalhes);
         reciboDAO.update(recibo);
     }
 

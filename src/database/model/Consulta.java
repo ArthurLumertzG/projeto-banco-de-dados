@@ -9,7 +9,6 @@ public class Consulta {
 	private int idAuxiliar;
 	private int idPet;
 	private Date dataHora;
-	private int idEndereco;
 	private String motivo;
 	private String diagnostico;
 	private String tratamento;
@@ -17,13 +16,25 @@ public class Consulta {
 	public Consulta() {
 	}
 
-	public Consulta(int idVeterinario, int idAuxiliar, int idPet, Date dataHora, int idEndereco,
+	
+	public Consulta(int idConsulta, int idVeterinario, int idAuxiliar, int idPet, Date dataHora,
+			String motivo, String diagnostico, String tratamento) {
+		this.idConsulta = idConsulta;
+		this.idVeterinario = idVeterinario;
+		this.idAuxiliar = idAuxiliar;
+		this.idPet = idPet;
+		this.dataHora = dataHora;
+		this.motivo = motivo;
+		this.diagnostico = diagnostico;
+		this.tratamento = tratamento;
+	}
+
+	public Consulta(int idVeterinario, int idAuxiliar, int idPet, Date dataHora,
 			String motivo, String diagnostico, String tratamento) {
 		this.idVeterinario = idVeterinario;
 		this.idAuxiliar = idAuxiliar;
 		this.idPet = idPet;
 		this.dataHora = dataHora;
-		this.idEndereco = idEndereco;
 		this.motivo = motivo;
 		this.diagnostico = diagnostico;
 		this.tratamento = tratamento;
@@ -87,18 +98,6 @@ public class Consulta {
 
 	public void setDataHora(Date dataHora) {
 		this.dataHora = dataHora;
-	}
-
-	public int getIdEndereco() {
-		return idEndereco;
-	}
-
-	public String getIdEnderecoAsString() {
-        return String.valueOf(this.idEndereco);
-    }
-
-	public void setIdEndereco(int idEndereco) {
-		this.idEndereco = idEndereco;
 	}
 
 	public String getMotivo() {

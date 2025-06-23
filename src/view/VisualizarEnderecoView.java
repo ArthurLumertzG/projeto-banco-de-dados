@@ -29,11 +29,11 @@ public class VisualizarEnderecoView extends JFrame {
 	}
 
 	private void componentesCriar() throws Exception {
-		modelo = new DefaultTableModel()  {
-				    @Override
-				    public boolean isCellEditable(int row, int column) {
-				        return false; 
-				    }
+		modelo = new DefaultTableModel() {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
 		};
 		modelo.addColumn("ID Endereço");
 		modelo.addColumn("CEP");
@@ -49,26 +49,26 @@ public class VisualizarEnderecoView extends JFrame {
 		scroll.setBounds(10, 10, 760, 240);
 		getContentPane().add(scroll);
 
-try {
-	List<Consulta> consultaLista = ConsultaController.listar();
+		try {
+			List<Endereco> enderecoLista = EnderecoController.listar();
 
-	for (Consulta consulta : consultaLista) {
-		String idConsulta = consulta.getIdConsultaAsString();
-		String idVeterinario = consulta.getIdVeterinarioAsString();
-		String idAuxiliar = consulta.getIdAuxiliarAsString();
-		String idPet = consulta.getIdPetAsString();
-		String dataHora = consulta.getDataHoraAsString();
-		String motivo = consulta.getMotivo();
-		String diagnostico = consulta.getDiagnostico();
-		String tratamento = consulta.getTratamento();
+			for (Endereco endereco : enderecoLista) {
+				String idEndereco = endereco.getIdEnderecoAsString();
+				String cep = endereco.getCep();
+				String rua = endereco.getRua();
+				String numero = endereco.getNumero();
+				String bairro = endereco.getBairro();
+				String cidade = endereco.getCidade();
+				String estado = endereco.getEstado();
+				String complemento = endereco.getComplemento();
 
-		modelo.addRow(new String[] {
-			idConsulta, idVeterinario, idAuxiliar, idPet, dataHora, motivo, diagnostico, tratamento
-		});
+				modelo.addRow(new String[] { idEndereco, cep, rua, numero, 
+						bairro, cidade, estado, complemento});
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(this, "Erro ao carregar dados da consulta", "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
 	}
-} catch (SQLException e) {
-	e.printStackTrace();
-	JOptionPane.showMessageDialog(this, "Erro ao carregar dados da consulta", "Erro", JOptionPane.ERROR_MESSAGE);
-}
-}
 }

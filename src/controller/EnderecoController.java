@@ -23,7 +23,7 @@ public class EnderecoController {
     }
 
     public static void inserir(String cep, String rua, String numero, String bairro, String cidade, String estado, String complemento) throws SQLException {
-        Endereco endereco = new Endereco(0, cep, rua, numero, bairro, cidade, estado, complemento);
+        Endereco endereco = new Endereco(cep, rua, numero, bairro, cidade, estado, complemento);
         enderecoDAO.insert(endereco);
     }
 

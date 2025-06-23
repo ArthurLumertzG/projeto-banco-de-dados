@@ -27,8 +27,8 @@ public class TutorController {
         tutorDAO.insert(tutor);
     }
 
-    public static void atualizar(String nome, String cpf, String email, String telefone, int idEndereco) throws SQLException {
-        Tutor tutor = new Tutor(nome, cpf, email, telefone, idEndereco);
+    public static void atualizar(int idTutor, String nome, String cpf, String email, String telefone, int idEndereco) throws SQLException {
+        Tutor tutor = new Tutor(idTutor, nome, cpf, email, telefone, idEndereco);
         tutorDAO.update(tutor);
     }
 

@@ -22,6 +22,15 @@ public class Pet {
 		this.raca = raca;
 	}
 
+	public Pet(int idPet, int idTutor, String nome, Date dataNascimento, String especie, String raca) {
+		this.idPet = idPet;
+		this.idTutor = idTutor;
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.especie = especie;
+		this.raca = raca;
+	}
+
 	public int getIdPet() {
 		return idPet;
 	}

@@ -10,24 +10,33 @@ public class Recibo {
 	private Date dataEmissao;
 	private String formaPagamento;
 	private String detalhes;
-    
+
 	public Recibo() {
 	}
-	
+
+	public Recibo(int idRecibo, int idConsulta, Double valor, Date dataEmissao, String formaPagamento, String detalhes) {
+		this.idRecibo = idRecibo;
+		this.idConsulta = idConsulta;
+		this.valor = valor;
+		this.dataEmissao = dataEmissao;
+		this.formaPagamento = formaPagamento;
+		this.detalhes = detalhes;
+	}
+
 	public Recibo(int idConsulta, Double valor, Date dataEmissao, String formaPagamento, String detalhes) {
 		this.idConsulta = idConsulta;
 		this.valor = valor;
 		this.dataEmissao = dataEmissao;
 		this.formaPagamento = formaPagamento;
 		this.detalhes = detalhes;
-		}
+	}
 
 	public int getIdRecibo() {
 		return idRecibo;
 	}
 
 	public String getIdReciboAsString() {
-    	return String.valueOf(this.idRecibo);
+		return String.valueOf(this.idRecibo);
 	}
 
 	public void setIdRecibo(int idRecibo) {
@@ -39,7 +48,7 @@ public class Recibo {
 	}
 
 	public String getIdConsultaAsString() {
-    	return String.valueOf(this.idConsulta);
+		return String.valueOf(this.idConsulta);
 	}
 
 	public void setIdConsulta(int idConsulta) {
@@ -53,11 +62,11 @@ public class Recibo {
 	public String getValorAsString() {
 		return String.valueOf(this.valor);
 	}
-	
+
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-	
+
 	public Date getDataEmissao() {
 		return dataEmissao;
 	}
@@ -65,6 +74,7 @@ public class Recibo {
 	public String getDataEmissaoAsString() {
 		return String.valueOf(this.dataEmissao);
 	}
+
 	public void setDataEmissao(Date dataEmissao) {
 		this.dataEmissao = dataEmissao;
 	}
@@ -84,6 +94,5 @@ public class Recibo {
 	public void setDetalhes(String detalhes) {
 		this.detalhes = detalhes;
 	}
-	
-	
+
 }

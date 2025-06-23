@@ -27,8 +27,8 @@ public class VeterinarioController {
         veterinarioDAO.insert(veterinario);
     }
 
-    public static void atualizar(int idClinica, int idEndereco, String nome, String cpf, String crmv, String email, String especialidade, String telefone) throws SQLException {
-        Veterinario veterinario = new Veterinario(idClinica, idEndereco, nome, cpf, crmv, email, especialidade, telefone);
+    public static void atualizar(int idVeterinario, int idClinica, int idEndereco, String nome, String cpf, String crmv, String email, String especialidade, String telefone) throws SQLException {
+        Veterinario veterinario = new Veterinario(idVeterinario, idClinica, idEndereco, nome, cpf, crmv, email, especialidade, telefone);
         veterinarioDAO.update(veterinario);
     }
 

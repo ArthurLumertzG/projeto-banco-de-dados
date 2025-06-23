@@ -40,7 +40,7 @@ public class AdicionarTutorView extends JFrame {
 	public AdicionarTutorView() {
 
 		setTitle("Clínica Veterinária - Tutor");
-		setSize(350, 350);
+		setSize(350, 250);
 		setLayout(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -82,29 +82,21 @@ public class AdicionarTutorView extends JFrame {
 		txfemail.getText();
 
 		lbltelefone = new JLabel("Telefone:");
-		lbltelefone.setBounds(15, 175, 100, 20);
+		lbltelefone.setBounds(180, 75, 100, 20);
 		pnlTutor.add(lbltelefone);
 		txftelefone = new JTextField();
-		txftelefone.setBounds(15, 195, 100, 20);
+		txftelefone.setBounds(180, 95, 100, 20);
 		pnlTutor.add(txftelefone);
 		txftelefone.getText();
 
-		lblemail = new JLabel("Email:");
-		lblemail.setBounds(15, 225, 100, 20);
-		pnlTutor.add(lblemail);
-		txfemail = new JTextField();
-		txfemail.setBounds(15, 245, 100, 20);
-		pnlTutor.add(txfemail);
-		txfemail.getText();
-
 		lblidEndereco = new JLabel("Endereço:");
-		lblidEndereco.setBounds(15, 275, 100, 20);
+		lblidEndereco.setBounds(15, 125, 100, 20);
 		pnlTutor.add(lblidEndereco);
 
 		try {
 			List<Endereco> listaEnderecos = EnderecoController.listar();
 			cbEndereco = new JComboBox<>(new Vector<>(listaEnderecos));
-			cbEndereco.setBounds(15, 295, 100, 20);
+			cbEndereco.setBounds(15, 145, 100, 20);
 
 			cbEndereco.setRenderer(new DefaultListCellRenderer() {
 				@Override
@@ -127,7 +119,7 @@ public class AdicionarTutorView extends JFrame {
 		}
 
 		btnenviar = new JButton("Enviar");
-		btnenviar.setBounds(200, 330, 100, 25);
+		btnenviar.setBounds(180, 145, 100, 20);
 
 		btnenviar.addActionListener(new ActionListener() {
 			@Override

@@ -28,8 +28,8 @@ public class PetController {
         petDAO.insert(pet);
     }
 
-    public static void atualizar(int idTutor, String nome, Date dataNascimento, String especie, String raca) throws SQLException {
-        Pet pet = new Pet(idTutor, nome, dataNascimento, especie, raca);
+    public static void atualizar(int idPet, int idTutor, String nome, Date dataNascimento, String especie, String raca) throws SQLException {
+        Pet pet = new Pet(idPet, idTutor, nome, dataNascimento, especie, raca);
         petDAO.update(pet);
     }
 

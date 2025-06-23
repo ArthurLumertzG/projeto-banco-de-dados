@@ -16,6 +16,18 @@ public class Veterinario {
 
 	}
 
+	public Veterinario(int idVeterinario, int idClinica, int idEndereco, String nome, String cpf, String crmv, String email, String especialidade, String telefone) {
+		this.idVeterinario = idVeterinario;
+		this.idClinica = idClinica;
+		this.idEndereco = idEndereco;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.crmv = crmv;
+		this.email = email;
+		this.especialidade = especialidade;
+		this.telefone = telefone;
+	}
+
 	public Veterinario(int idClinica, int idEndereco, String nome, String cpf, String crmv, String email, String especialidade, String telefone) {
 		this.idClinica = idClinica;
 		this.idEndereco = idEndereco;

@@ -27,8 +27,8 @@ public class ClinicaController {
         clinicaDAO.insert(clinica);
     }
 
-    public static void atualizar(String nome, String cnpj, String telefone, String email, int idEndereco) throws SQLException {
-        Clinica clinica = new Clinica(nome, cnpj, telefone, email, idEndereco);
+    public static void atualizar(int idClinica, String nome, String cnpj, String telefone, String email, int idEndereco) throws SQLException {
+        Clinica clinica = new Clinica(idClinica, nome, cnpj, telefone, email, idEndereco);
         clinicaDAO.update(clinica);
     }
 

@@ -81,9 +81,7 @@ public class DeletarClinicaView extends JFrame {
 		txfDeletar = new JTextField();
 		txfDeletar.setBounds(180, 230, 100, 20);
 		getContentPane().add(txfDeletar);
-		btnDeletar = new JButton("Deletar");
-		btnDeletar.setBounds(300, 230, 95, 30);
-		btnDeletar.add(btnDeletar);
+		
 		btnDeletar.addActionListener( new ActionListener() {
 			
 			@Override

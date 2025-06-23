@@ -12,6 +12,15 @@ public class Tutor {
 	public Tutor() {
 	}
 
+	public Tutor(int idTutor, String nome, String cpf, String email, String telefone, int idEndereco) {
+		this.idTutor = idTutor;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.telefone = telefone;
+		this.idEndereco = idEndereco;
+	}
+
 	public Tutor(String nome, String cpf, String email, String telefone, int idEndereco) {
 		this.nome = nome;
 		this.cpf = cpf;
@@ -25,7 +34,7 @@ public class Tutor {
 	}
 
 	public String getIdTutorAsString() {
-    	return String.valueOf(this.idTutor);
+		return String.valueOf(this.idTutor);
 	}
 
 	public void setIdTutor(int idTutor) {
@@ -69,7 +78,7 @@ public class Tutor {
 	}
 
 	public String getIdEnderecoAsString() {
-    	return String.valueOf(this.idEndereco);
+		return String.valueOf(this.idEndereco);
 	}
 
 	public void setIdEndereco(int idEndereco) {

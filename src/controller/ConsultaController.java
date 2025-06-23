@@ -22,13 +22,13 @@ public class ConsultaController {
         return consultaDAO.selectAll();
     }
 
-    public static void inserir(int idVeterinario, int idAuxiliar, int idPet, Date dataHora, int idEndereco, String motivo, String diagnostico, String tratamento) throws Exception {
-        Consulta consulta = new Consulta(idVeterinario, idAuxiliar, idPet, dataHora, idEndereco, motivo, diagnostico, tratamento);
+    public static void inserir(int idVeterinario, int idAuxiliar, int idPet, Date dataHora, String motivo, String diagnostico, String tratamento) throws Exception {
+        Consulta consulta = new Consulta(idVeterinario, idAuxiliar, idPet, dataHora, motivo, diagnostico, tratamento);
         consultaDAO.insert(consulta);
     }
 
-    public static void atualizar(int idVeterinario, int idAuxiliar, int idPet, Date dataHora, int idEndereco, String motivo, String diagnostico, String tratamento) throws Exception {
-        Consulta consulta = new Consulta(idVeterinario, idAuxiliar, idPet, dataHora, idEndereco, motivo, diagnostico, tratamento);
+    public static void atualizar(int idConsulta, int idVeterinario, int idAuxiliar, int idPet, Date dataHora, String motivo, String diagnostico, String tratamento) throws Exception {
+        Consulta consulta = new Consulta(idConsulta, idVeterinario, idAuxiliar, idPet, dataHora, motivo, diagnostico, tratamento);
         consultaDAO.update(consulta);
     }
 
