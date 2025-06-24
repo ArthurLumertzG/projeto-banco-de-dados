@@ -28,4 +28,8 @@ public class FaturamentoMensal {
     public void setFaturamentoMensal(Double faturamentoMensal) {
         this.faturamentoMensal = faturamentoMensal;
     }
+
+    public String getFaturamentoMensalAsString() {
+        return String.valueOf(faturamentoMensal);
+    }
 }

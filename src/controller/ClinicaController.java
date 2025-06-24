@@ -5,43 +5,51 @@ import java.util.List;
 
 import database.dao.ClinicaDAO;
 import database.model.Clinica;
+import database.model.TotalConsultas;
 
 public class ClinicaController {
 
-    private static ClinicaDAO clinicaDAO;
+	private static ClinicaDAO clinicaDAO;
 
-    static {
-        try {
-            clinicaDAO = new ClinicaDAO();
-        } catch (SQLException e) {
-            throw new ExceptionInInitializerError(e);
-        }
-    }
+	static {
+		try {
+			clinicaDAO = new ClinicaDAO();
+		} catch (SQLException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+	}
 
-    public static List<Clinica> listar() throws SQLException {
-        return clinicaDAO.selectAll();
-    }
+	public static List<Clinica> listar() throws SQLException {
+		return clinicaDAO.selectAll();
+	}
 
-    public static void inserir(String nome, String cnpj, String telefone, String email, int idEndereco) throws SQLException {
-        Clinica clinica = new Clinica(nome, cnpj, telefone, email, idEndereco);
-        clinicaDAO.insert(clinica);
-    }
+	public static void inserir(String nome, String cnpj, String telefone, String email, int idEndereco)
+			throws SQLException {
+		Clinica clinica = new Clinica(nome, cnpj, telefone, email, idEndereco);
+		clinicaDAO.insert(clinica);
+	}
 
-    public static void atualizar(int idClinica, String nome, String cnpj, String telefone, String email, int idEndereco) throws SQLException {
-        Clinica clinica = new Clinica(idClinica, nome, cnpj, telefone, email, idEndereco);
-        clinicaDAO.update(clinica);
-    }
+	public static void atualizar(int idClinica, String nome, String cnpj, String telefone, String email, int idEndereco)
+			throws SQLException {
+		Clinica clinica = new Clinica(idClinica, nome, cnpj, telefone, email, idEndereco);
+		clinicaDAO.update(clinica);
+	}
 
-    public static void deletar(int idClinica) throws SQLException {
-        clinicaDAO.delete(idClinica);
-    }
+	public static void deletar(int idClinica) throws SQLException {
+		clinicaDAO.delete(idClinica);
+	}
 
-    public static Clinica buscarPorId(int idClinica) throws SQLException {
-        for (Clinica c : clinicaDAO.selectAll()) {
-            if (c.getIdClinica() == idClinica) {
-                return c;
-            }
-        }
-        return null;
-    }
+	public static Clinica buscarPorId(int idClinica) throws SQLException {
+		for (Clinica c : clinicaDAO.selectAll()) {
+			if (c.getIdClinica() == idClinica) {
+				return c;
+			}
+		}
+		return null;
+	}
+
+	public static List<TotalConsultas> listarTotalConsultas() throws SQLException {
+		return clinicaDAO.selectTotalConsultas();
+	}
+
 }

@@ -1,15 +1,80 @@
 package view;
 
 import database.ConnectionFactory;
+import utils.DatabasePopulator;
 
 import javax.swing.*;
 import java.awt.event.*;
 
 public class MainView extends JFrame {
+	
+	
 
     public MainView() {
+    	
+    	JButton btnFaturamento;
+    	JButton btnConsultasporClinica;
+    	JButton btnConsultasporMes;
+    	JButton btnPopularBanco;
+    	JLabel lblDesenvolvido;
+    	
+    	btnPopularBanco = new JButton("Popular banco de dados");
+    	btnPopularBanco.setBounds(50, 550, 400, 20);
+    	getContentPane().add(btnPopularBanco);
+    	btnPopularBanco.addActionListener( new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DatabasePopulator.populate();
+				JOptionPane.showMessageDialog(rootPane, "Banco populado com sucesso");
+			}
+		});
+    	
+    	lblDesenvolvido = new JLabel("<html><span style='font-size:8px;'>"
+    		    + "Desenvolvido por:<br>Arthur Lumertz, Carlos Miguel Webber, "
+    		    + "Davi da Silva Valvassori e Gabriel Pereira José.</span></html>");
+    		lblDesenvolvido.setBounds(5, 0, 600, 60);
+    		getContentPane().add(lblDesenvolvido);
+    	
+    	btnFaturamento = new JButton("Consultar Faturamento mensal");
+    	btnFaturamento.setBounds(50, 460, 400, 20);
+    	getContentPane().add(btnFaturamento);
+    	btnFaturamento.addActionListener( new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new view.FaturamentoView();
+			}
+		});
+    	
+    	btnConsultasporClinica = new JButton("Consultar consultas por clínica");
+    	btnConsultasporClinica.setBounds(50, 490, 400, 20);
+    	getContentPane().add(btnConsultasporClinica);
+    	btnConsultasporClinica.addActionListener( new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new view.ConsultasPorClinicaView();
+			}
+		});
+    	
+    	btnConsultasporMes = new JButton("Consultar consultas realizadas em cada mês");
+    	btnConsultasporMes.setBounds(50, 520, 400, 20);
+    	getContentPane().add(btnConsultasporMes);
+    	btnConsultasporMes.addActionListener( new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new view.ConsultasPorMesView();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+    	
         setTitle("Sistema da Clínica Veterinária");
-        setSize(500, 600);
+        setSize(500, 650);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);

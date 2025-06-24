@@ -58,6 +58,7 @@ public class DeletarAuxiliarView extends JFrame{
 					
 					try {
 						AuxiliarController.deletar(id);
+						JOptionPane.showMessageDialog(rootPane, "Deletado com sucesso!");
 					} catch (SQLException e1) {
 						JOptionPane.showMessageDialog(rootPane, "Id inválido."); 
 						e1.printStackTrace();

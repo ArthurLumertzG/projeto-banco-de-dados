@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import database.ConnectionFactory;
 import database.model.Consulta;
+import database.model.TotalConsultasMes;
 
 public class ConsultaDAO {
 
@@ -15,11 +16,13 @@ public class ConsultaDAO {
 	private String insert = "INSERT INTO consulta(id_veterinario, id_auxiliar, id_pet, data_hora, motivo, diagnostico, tratamento) VALUES (?, ?, ?, ?, ?, ?, ?)";
 	private String update = "UPDATE consulta SET id_veterinario = ?, id_auxiliar = ?, id_pet = ?, data_hora = ?, motivo = ?, diagnostico = ?, tratamento = ? WHERE id_consulta = ?";
 	private String delete = "DELETE FROM consulta WHERE id_consulta = ?";
+	private String totalConsultasPorMes = "SELECT to_char(data_hora, 'YYYY-MM') AS mes, COUNT(*) AS total_consultas FROM Consulta GROUP BY to_char(data_hora, 'YYYY-MM') ORDER BY mes;";
 
 	private PreparedStatement pstSelectAll;
 	private PreparedStatement pstInsert;
 	private PreparedStatement pstUpdate;
 	private PreparedStatement pstDelete;
+	private PreparedStatement pstTotalConsultasPorMes;
 
 	public ConsultaDAO() throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
@@ -27,6 +30,7 @@ public class ConsultaDAO {
 		pstInsert = connection.prepareStatement(insert);
 		pstUpdate = connection.prepareStatement(update);
 		pstDelete = connection.prepareStatement(delete);
+		pstTotalConsultasPorMes = connection.prepareStatement(totalConsultasPorMes);
 	}
 
 	public void insert(Consulta consulta) throws SQLException {
@@ -76,4 +80,16 @@ public class ConsultaDAO {
 
 		return consultas;
 	}
+
+	public ArrayList<TotalConsultasMes> selectTotalConsultasMes() throws SQLException {
+		ArrayList<TotalConsultasMes> consultasPorMes = new ArrayList<TotalConsultasMes>();
+		ResultSet resultSet = pstTotalConsultasPorMes.executeQuery();
+		while (resultSet.next()) {
+			TotalConsultasMes tcm = new TotalConsultasMes(resultSet.getString("mes"),
+					resultSet.getInt("total_consultas"));
+			consultasPorMes.add(tcm);
+		}
+		return consultasPorMes;
+	}
+
 }

@@ -175,6 +175,7 @@ public class AtualizarClinicaView extends JFrame {
 							email = txfemail.getText();
 							idEndereco = Integer.parseInt(txfidEndereco.getText());
 							ClinicaController.atualizar(id, nome, cnpj, telefone, email, idEndereco);
+							JOptionPane.showMessageDialog(rootPane, "Clínica atualizada com sucesso!");
 						} catch (SQLException e1) {
 							JOptionPane.showMessageDialog(rootPane, "Id inválido."); 
 							e1.printStackTrace();

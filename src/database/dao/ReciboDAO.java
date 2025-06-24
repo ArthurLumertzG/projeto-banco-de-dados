@@ -16,7 +16,7 @@ public class ReciboDAO {
 	private String insert = "INSERT INTO recibo(id_consulta, valor, data_emissao, forma_pagamento, detalhes) VALUES (?, ?, ?, ?, ?)";
 	private String update = "UPDATE recibo SET id_consulta = ?, valor = ?, data_emissao = ?, forma_pagamento = ?, detalhes = ? WHERE id_recibo = ?";
 	private String delete = "DELETE FROM recibo WHERE id_recibo = ?";
-	private String faturamentoRecibos = "SELECT to_char(data_emissao, 'YYYY-MM') AS mes, SUM(valor) AS faturamento_mensal FROM recibo GROUP BY to_char(data_emissao, 'YYYY-MM') ORDER BY mes;\n";
+	private String faturamentoRecibos = "SELECT to_char(data_emissao, 'YYYY-MM') AS mes, SUM(valor) AS faturamento_mensal FROM recibo GROUP BY to_char(data_emissao, 'YYYY-MM') ORDER BY mes;";
 
 	private PreparedStatement pstSelectAll;
 	private PreparedStatement pstInsert;

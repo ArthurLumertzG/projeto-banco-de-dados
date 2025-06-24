@@ -215,6 +215,7 @@ public class AtualizarConsultaView extends JFrame {
 							tratamento = txftratamento.getText();
 							ConsultaController.atualizar(id, idVeterinario, idAuxiliar, idPet, dataHora,
 							 motivo, diagnostico, tratamento);
+							JOptionPane.showMessageDialog(rootPane, "Consulta atualizada com sucesso!");
 						} catch (SQLException e1) {
 							JOptionPane.showMessageDialog(rootPane, "Id inválido."); 
 							e1.printStackTrace();

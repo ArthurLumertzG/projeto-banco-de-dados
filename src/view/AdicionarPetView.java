@@ -131,7 +131,6 @@ public class AdicionarPetView extends JFrame {
 					JOptionPane.ERROR_MESSAGE);
 		}
 
-		// Botão Enviar
 		btnenviar = new JButton("Enviar");
 		btnenviar.setBounds(250, 260, 100, 25);
 		pnlPet.add(btnenviar);

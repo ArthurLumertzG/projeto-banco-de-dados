@@ -184,6 +184,7 @@ public class AtualizarAuxiliarView extends JFrame {
                             nome = txfnome.getText();
                             int idAuxiliar = Integer.parseInt(txfAtualizar.getText()); 
                             AuxiliarController.atualizar(idAuxiliar, nome, cpf, crmv, email, idClinica, telefone, idEndereco);
+                            JOptionPane.showMessageDialog(rootPane, "Auxiliar atualizado com sucesso!");
                         } catch (SQLException ex) {
                             ex.printStackTrace();
                         }

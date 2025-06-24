@@ -5,6 +5,7 @@ import java.util.List;
 
 import database.dao.ConsultaDAO;
 import database.model.Consulta;
+import database.model.TotalConsultasMes;
 
 public class ConsultaController {
 
@@ -27,7 +28,7 @@ public class ConsultaController {
         consultaDAO.insert(consulta);
     }
 
-    public static void atualizar(int idConsulta, int idVeterinario, int idAuxiliar, int idPet, Date dataHora, String motivo, String diagnostico, String tratamento) throws Exception {
+	public static void atualizar(int idConsulta, int idVeterinario, int idAuxiliar, int idPet, Date dataHora, String motivo, String diagnostico, String tratamento) throws Exception {
         Consulta consulta = new Consulta(idConsulta, idVeterinario, idAuxiliar, idPet, dataHora, motivo, diagnostico, tratamento);
         consultaDAO.update(consulta);
     }
@@ -44,4 +45,9 @@ public class ConsultaController {
         }
         return null;
     }
+
+    public static List<TotalConsultasMes> listarTotalConsultasMes() throws Exception {
+        return consultaDAO.selectTotalConsultasMes();
+    }
+
 }

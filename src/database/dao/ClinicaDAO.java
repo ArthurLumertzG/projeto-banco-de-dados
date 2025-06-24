@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import database.ConnectionFactory;
 import database.model.Clinica;
+import database.model.TotalConsultas;
 
 public class ClinicaDAO {
 
@@ -15,11 +16,13 @@ public class ClinicaDAO {
 	private String insert = "INSERT INTO clinica(nome, cnpj, telefone, email, id_endereco) VALUES (?, ?, ?, ?, ?)";
 	private String update = "UPDATE clinica SET nome = ?, cnpj = ?, telefone = ?, email = ?, id_endereco = ? WHERE id_clinica = ?";
 	private String delete = "DELETE FROM clinica WHERE id_clinica = ?";
+	private String totalConsultasPorClinica = "SELECT c.id_clinica, c.nome AS nome_clinica, COUNT(*) AS total_consultas FROM Consulta cs JOIN Veterinario v ON cs.id_veterinario = v.id_veterinario JOIN Clinica c ON v.id_clinica = c.id_clinica GROUP BY c.id_clinica, c.nome ORDER BY total_consultas DESC;";
 
 	private PreparedStatement pstSelectAll;
 	private PreparedStatement pstInsert;
 	private PreparedStatement pstUpdate;
 	private PreparedStatement pstDelete;
+	private PreparedStatement pstTotalConsultasPorClinica;
 
 	public ClinicaDAO() throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
@@ -27,6 +30,7 @@ public class ClinicaDAO {
 		pstInsert = connection.prepareStatement(insert);
 		pstUpdate = connection.prepareStatement(update);
 		pstDelete = connection.prepareStatement(delete);
+		pstTotalConsultasPorClinica = connection.prepareStatement(totalConsultasPorClinica);
 	}
 
 	public void insert(Clinica clinica) throws SQLException {
@@ -69,5 +73,16 @@ public class ClinicaDAO {
 		}
 
 		return clinicas;
+	}
+
+	public ArrayList<TotalConsultas> selectTotalConsultas() throws SQLException {
+		ArrayList<TotalConsultas> consultasPorClinica = new ArrayList<TotalConsultas>();
+		ResultSet resultSet = pstTotalConsultasPorClinica.executeQuery();
+		while (resultSet.next()) {
+			TotalConsultas tc = new TotalConsultas(resultSet.getInt("id_clinica"), resultSet.getString("nome_clinica"),
+					resultSet.getInt("total_consultas"));
+			consultasPorClinica.add(tc);
+		}
+		return consultasPorClinica;
 	}
 }
