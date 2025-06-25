@@ -59,7 +59,7 @@ src/
 
 ## 👨‍💻 Desenvolvedores
 
-- Arthur Lumertz Guimarães (@arthurlg)
+- Arthur Lumertz Guimarães (@ArthurLumertzG)
 - Carlos Miguel Webber (@ckzwebber)
 
 ---
