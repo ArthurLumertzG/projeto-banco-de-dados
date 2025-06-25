@@ -60,7 +60,7 @@ src/
 ## 👨‍💻 Desenvolvedores
 
 - Arthur Lumertz Guimarães (@arthurlg)
-- ...
+- Carlos Miguel Webber (@ckzwebber)
 
 ---
 
